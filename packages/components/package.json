@@ -1,0 +1,19 @@
+{
+  "name": "@selene/components",
+  "version": "0.0.1",
+  "description": "Selene Components",
+  "main": "index.js",
+  "author": "Will Bamford",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@selene/tools": "^0.0.1"
+  },
+  "dependencies": {
+    "@selene/theme": "^0.0.1"
+  },
+  "gitHead": "ccf1949fa7cc43602472515aa61a2997f278458f"
+}
