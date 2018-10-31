@@ -2,10 +2,12 @@
   "name": "@selene/theme",
   "version": "0.0.1",
   "description": "Selene Theme",
-  "main": "index.js",
+  "main": "lib/theme.js",
+  "module": "es/theme.js",
   "scripts": {
     "build": "rollup -c",
-    "watch": "rollup -c -w"
+    "watch": "rollup -c -w",
+    "lint": "eslint ."
   },
   "author": "Will Bamford",
   "license": "MIT",

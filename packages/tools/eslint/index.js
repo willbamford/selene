@@ -5,6 +5,9 @@ module.exports = {
     jest: true,
     browser: true,
   },
+  rules: {
+    'import/prefer-default-export': 'off',
+  },
   // settings: {
   //   'import/parser': 'babel-eslint',
   //   'import/resolver': 'webpack',

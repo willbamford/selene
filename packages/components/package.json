@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "Selene Components",
   "main": "index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w",
+    "lint": "eslint ."
+  },
   "author": "Will Bamford",
   "license": "MIT",
   "private": false,
@@ -13,7 +18,15 @@
     "@selene/tools": "^0.0.1"
   },
   "dependencies": {
-    "@selene/theme": "^0.0.1"
+    "@selene/theme": "^0.0.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.0.3"
+  },
+  "peerDependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "styled-components": "^4.0.0"
   },
   "gitHead": "ccf1949fa7cc43602472515aa61a2997f278458f"
 }
