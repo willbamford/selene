@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Selene Docs",
   "main": "index.js",
+  "scripts": {
+    "start": "npx styleguidist server",
+    "build": "npx styleguidist build"
+  },
   "author": "Will Bamford",
   "license": "MIT",
   "private": false,
@@ -10,7 +14,16 @@
     "access": "public"
   },
   "devDependencies": {
-    "@selene/tools": "^0.0.1"
+    "@babel/core": "^7.0.0",
+    "@selene/components": "^0.0.1",
+    "@selene/tools": "^0.0.1",
+    "babel-loader": "^8.0.4",
+    "react-styleguidist": "^8.0.2",
+    "webpack": "^4.23.1"
+  },
+  "dependencies": {
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0"
   },
   "gitHead": "ccf1949fa7cc43602472515aa61a2997f278458f"
 }
