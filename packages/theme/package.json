@@ -15,8 +15,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "@selene/tools": "^0.0.1"
-  },
   "gitHead": "ccf1949fa7cc43602472515aa61a2997f278458f"
 }
