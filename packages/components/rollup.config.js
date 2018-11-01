@@ -15,6 +15,7 @@ const buildRollupConfig = ({ name, input, pkg }) => {
     }),
     babel({
       exclude: 'node_modules/**',
+      configFile: '../../babel.config.js',
     }),
   ]
 
