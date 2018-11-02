@@ -1,15 +1,14 @@
 const path = require('path')
 const webpackConfig = require('./webpack.config')
+const { getPkgRoot } = require('./utils')
 
-const getComponentsPath = () => {
-  let p = require.resolve('@selene/components')
-  p = p.substring(0, p.lastIndexOf('/'))
-  return `${p}/src/**/[A-Z]*.jsx`
-}
+const getComponentsSource = () => `${getPkgRoot('@selene/components')}/src`
+
+const getComponentsGlob = () => `${getComponentsSource()}/**/[A-Z]*.jsx`
 
 module.exports = {
   title: 'Selene',
-  components: getComponentsPath(),
+  components: getComponentsGlob(),
   styleguideComponents: {
     Wrapper: path.join(__dirname, './components/Wrapper'),
   },
