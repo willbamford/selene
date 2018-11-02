@@ -1,21 +1,15 @@
-// import React from 'react'
-// import styled from 'styled-components'
-
-// const StyledButton = styled.button`
-//   background-color: green;
-// `
-
-// const Button = ({ children }) => <StyledButton>{children}</StyledButton>
-
-// export default Button
-
 import React from 'react'
+import styled from 'styled-components'
 
-const Button = ({ children }) => <button>{children}</button>
+const StyledButton = styled.button`
+  background: tomato;
+  color: white;
+  padding: 1rem;
+`
 
-Button.propTypes = {
-  // children: Prop
-}
+const Button = ({ children }) => (
+  <StyledButton type="button">{children}</StyledButton>
+)
 
 Button.displayName = 'Button'
 

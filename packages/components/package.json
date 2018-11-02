@@ -15,7 +15,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@selene/theme": "^0.0.1",
+    "@selene/theme": "^0.0.1"
+  },
+  "devDependencies": {
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "styled-components": "^4.0.3"

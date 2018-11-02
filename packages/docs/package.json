@@ -14,11 +14,8 @@
     "access": "public"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
     "@selene/components": "^0.0.1",
-    "babel-loader": "^8.0.4",
-    "react-styleguidist": "^8.0.2",
-    "webpack": "^4.23.1"
+    "react-styleguidist": "^8.0.2"
   },
   "dependencies": {
     "react": "^16.6.0",
