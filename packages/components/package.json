@@ -15,14 +15,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@selene/theme": "^0.0.1",
+    "@selene/theme": "file:../theme",
     "prop-types": "^15.6.2",
     "styled-system": "^3.1.11"
-  },
-  "devDependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "styled-components": "^4.0.3"
   },
   "peerDependencies": {
     "react": "^16.6.0",

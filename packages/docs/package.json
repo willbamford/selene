@@ -13,12 +13,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "react-styleguidist": "^8.0.2"
-  },
   "dependencies": {
-    "@selene/components": "^0.0.1",
-    "@selene/theme": "^0.0.1",
+    "@selene/components": "file:../components",
+    "@selene/theme": "file:../theme",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
