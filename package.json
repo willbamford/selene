@@ -2,6 +2,7 @@
   "name": "@selene/workspace",
   "private": true,
   "scripts": {
+    "start": "lerna run start --scope='@selene/docs' --stream",
     "lerna:publish": "lerna publish"
   },
   "devDependencies": {
