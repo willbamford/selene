@@ -1,5 +1,5 @@
 export const breakpoints = {
-  /* Mobile first - default doesn't require breakpoint */
+  _: 0,
   xxs: 480,
   xs: 640,
   sm: 768,

@@ -1,9 +1,8 @@
-// import React from 'react'
-// import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 const createMediaQuery = value => `@media screen and (min-width: ${value}px)`
 
+// Move to primitives / system folder?
 const applyMinMediaQueriesAtBreakpoints = (breakpoints, apply) =>
   Object.keys(breakpoints)
     .map(bp => {
@@ -13,7 +12,7 @@ const applyMinMediaQueriesAtBreakpoints = (breakpoints, apply) =>
         console.warn(`Warning: breakpoint '${bp}' does not exist`)
         return ''
       }
-      return bp === '_'
+      return bp === '_' /* todo: constant */
         ? apply(bp)
         : `
             ${createMediaQuery(value)} {
@@ -23,14 +22,21 @@ const applyMinMediaQueriesAtBreakpoints = (breakpoints, apply) =>
     })
     .join('')
 
+const getGapBreakpoints = (gaps, breakpoints) =>
+  Object.keys(gaps).reduce(
+    (prev, curr) => ({ ...prev, ...{ [curr]: breakpoints[curr] } }),
+    {},
+  )
+
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   padding: 0;
+
   ${({ gaps, theme: { breakpoints } }) =>
     applyMinMediaQueriesAtBreakpoints(
-      breakpoints,
+      getGapBreakpoints(gaps, breakpoints),
       breakpoint => `
         margin: -${gaps[breakpoint]}px;
         > * {
@@ -38,13 +44,5 @@ const Grid = styled.div`
         }`,
     )};
 `
-
-// Grid.propTypes = {
-//   as: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-// }
-
-// Grid.defaultProps = {
-//   as: 'div',
-// }
 
 export default Grid
