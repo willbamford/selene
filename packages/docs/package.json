@@ -14,8 +14,8 @@
     "access": "public"
   },
   "dependencies": {
-    "@selene/components": "file:../components",
-    "@selene/theme": "file:../theme",
+    "@selene/components": "^0.0.1",
+    "@selene/theme": "v0.0.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",

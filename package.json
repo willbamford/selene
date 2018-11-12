@@ -43,11 +43,5 @@
     "packages": [
       "packages/*"
     ]
-  },
-  "dependencies": {
-    "@selene/components": "file:packages/components",
-    "@selene/docs": "file:packages/docs",
-    "@selene/selene": "file:packages/selene",
-    "@selene/theme": "file:packages/theme"
   }
 }
