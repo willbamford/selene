@@ -1,25 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-
-import { space, width, fontSize, color, gridGap } from 'styled-system'
-
-// console.log('space', space)
-// console.log('width', width)
-// console.log('fontSize', fontSize)
-// console.log('color', color)
-
-// const s = `
-//   ${gridGap};
-// `
-
-// console.log('s', s)
+import { color } from 'styled-system'
 
 const StyledButton = styled.button`
-  ${gridGap};
+  ${color};
 `
 
 const Button = ({ children, ...rest }) => (
-  <StyledButton type="button" gridGap={16} {...rest}>
+  <StyledButton type="button" {...rest}>
     {children}
   </StyledButton>
 )

@@ -23,57 +23,61 @@ const applyMinMediaQueryCssAtBreakpoints = (breakpoints, apply) =>
     })
     .join('')
 
-const gapBreakpoints = (gaps, breakpoints) =>
-  Object.keys(gaps).reduce(
+const gapBreakpoints = (gap, breakpoints) =>
+  Object.keys(gap).reduce(
     (prev, curr) => ({ ...prev, ...{ [curr]: breakpoints[curr] } }),
     {},
   )
 
-const cssForGaps = gaps => `
-  margin: -${gaps}px;
+const cssForGap = gap => `
+  margin: -${gap}px;
   > * {
-    padding: ${gaps}px;
+    padding: ${gap}px;
   }
 `
 
-const cssForRowGaps = rowGaps => `
-  margin-top: -${rowGaps}px;
-  margin-bottom: -${rowGaps}px;
+const cssForRowGap = rowGap => `
+  margin-top: -${rowGap}px;
+  margin-bottom: -${rowGap}px;
   > * {
-    padding-top: ${rowGaps}px;
-    padding-bottom: ${rowGaps}px;
+    padding-top: ${rowGap}px;
+    padding-bottom: ${rowGap}px;
   }
 `
 
-const cssForColGaps = colGaps => `
-  margin-left: -${colGaps}px;
-  margin-right: -${colGaps}px;
+const cssForColGap = colGap => `
+  margin-left: -${colGap}px;
+  margin-right: -${colGap}px;
   > * {
-    padding-left: ${colGaps}px;
-    padding-right: ${colGaps}px;
+    padding-left: ${colGap}px;
+    padding-right: ${colGap}px;
   }
 `
 
-const applyGridGaps = ({ breakpoints, spacing }, gaps, cssForGapsFn) => {
-  if (gaps === undefined) {
+const applyGridGap = (
+  { breakpointsMap: breakpoints, spacing },
+  gap,
+  cssForGapFn,
+) => {
+  if (gap === undefined) {
     return undefined
   }
-  if (typeof gaps === 'object') {
+  if (typeof gap === 'object') {
     return applyMinMediaQueryCssAtBreakpoints(
-      gapBreakpoints(gaps, breakpoints),
-      breakpoint => cssForGapsFn(spacing[gaps[breakpoint]]),
+      gapBreakpoints(gap, breakpoints),
+      breakpoint => cssForGapFn(spacing[gap[breakpoint]]),
     )
   }
-  return cssForGapsFn(spacing[gaps])
+  return cssForGapFn(spacing[gap])
 }
 
-const gridGaps = props => applyGridGaps(props.theme, props.gaps, cssForGaps)
+const gridGap = props => applyGridGap(props.theme, props.gap, cssForGap)
 
-const gridRowGaps = props =>
-  applyGridGaps(props.theme, props.rowGaps, cssForRowGaps)
+const gridRowGap = props =>
+  applyGridGap(props.theme, props.rowGap, cssForRowGap)
 
-const gridColGaps = props =>
-  applyGridGaps(props.theme, props.colGaps, cssForColGaps)
+const gridColGap = props =>
+  applyGridGap(props.theme, props.colGap, cssForColGap)
 
 const Grid = styled.div`
   display: flex;
@@ -81,9 +85,9 @@ const Grid = styled.div`
   list-style: none;
   padding: 0;
 
-  ${gridGaps};
-  ${gridRowGaps};
-  ${gridColGaps};
+  ${gridGap};
+  ${gridRowGap};
+  ${gridColGap};
 `
 
 export default Grid
