@@ -15,5 +15,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "peerDependencies": {
+    "styled-components": "^4.0.0",
+    "styled-system": "^3.1.0"
+  },
   "gitHead": "ccf1949fa7cc43602472515aa61a2997f278458f"
 }

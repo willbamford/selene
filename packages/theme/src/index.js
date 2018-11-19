@@ -1,4 +1,8 @@
-export const breakpointsMap = {
+import { css } from 'styled-components'
+
+export const baseFontSize = 16
+
+export const breakpoints = {
   def: 0,
   xxs: 480,
   xs: 640,
@@ -9,12 +13,22 @@ export const breakpointsMap = {
   xxl: 1920,
 }
 
-export const breakpoints = Object.values(breakpointsMap).filter(v => v !== 0)
+export const media = Object.keys(breakpoints).reduce((acc, key) => {
+  acc[key] = (...args) => {
+    console.log('args', args)
+    return css`
+      @media (min-width: ${breakpoints[key] / baseFontSize}em) {
+        ${css(...args)}
+      }
+    `
+  }
+  return acc
+}, {})
 
 export const spacing = [0, 1, 2, 4, 8, 16, 24, 32, 48, 64, 128]
 
 export default {
-  breakpointsMap,
   breakpoints,
   spacing,
+  media,
 }

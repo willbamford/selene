@@ -1,5 +1,14 @@
 import styled from 'styled-components'
-import { createMediaQuery } from 'styled-system'
+import { createMediaQuery, style, space, px } from 'styled-system'
+
+export const gridGap = style({
+  prop: 'gap',
+  transformValue: value => {
+    console.log('value', value)
+    // console.log('gridGaps props', props)
+    return px(value)
+  },
+})
 
 const DEFAULT = 'def'
 
@@ -29,36 +38,32 @@ const gapBreakpoints = (gap, breakpoints) =>
     {},
   )
 
-const cssForGap = gap => `
-  margin: -${gap}px;
+const cssForGap = value => `
+  margin: -${value}px;
   > * {
-    padding: ${gap}px;
+    padding: ${value}px;
   }
 `
 
-const cssForRowGap = rowGap => `
-  margin-top: -${rowGap}px;
-  margin-bottom: -${rowGap}px;
+const cssForRowGap = value => `
+  margin-top: -${value}px;
+  margin-bottom: -${value}px;
   > * {
-    padding-top: ${rowGap}px;
-    padding-bottom: ${rowGap}px;
+    padding-top: ${value}px;
+    padding-bottom: ${value}px;
   }
 `
 
-const cssForColGap = colGap => `
-  margin-left: -${colGap}px;
-  margin-right: -${colGap}px;
+const cssForColGap = value => `
+  margin-left: -${value}px;
+  margin-right: -${value}px;
   > * {
-    padding-left: ${colGap}px;
-    padding-right: ${colGap}px;
+    padding-left: ${value}px;
+    padding-right: ${value}px;
   }
 `
 
-const applyGridGap = (
-  { breakpointsMap: breakpoints, spacing },
-  gap,
-  cssForGapFn,
-) => {
+const applyGridGap = ({ breakpoints, spacing }, gap, cssForGapFn) => {
   if (gap === undefined) {
     return undefined
   }
@@ -71,13 +76,13 @@ const applyGridGap = (
   return cssForGapFn(spacing[gap])
 }
 
-const gridGap = props => applyGridGap(props.theme, props.gap, cssForGap)
+// const gridGap = props => applyGridGap(props.theme, props.gap, cssForGap)
 
-const gridRowGap = props =>
-  applyGridGap(props.theme, props.rowGap, cssForRowGap)
+// const gridRowGap = props =>
+//   applyGridGap(props.theme, props.rowGap, cssForRowGap)
 
-const gridColGap = props =>
-  applyGridGap(props.theme, props.colGap, cssForColGap)
+// const gridColGap = props =>
+//   applyGridGap(props.theme, props.colGap, cssForColGap)
 
 const Grid = styled.div`
   display: flex;
@@ -85,9 +90,8 @@ const Grid = styled.div`
   list-style: none;
   padding: 0;
 
-  ${gridGap};
-  ${gridRowGap};
-  ${gridColGap};
+  ${gridGap}
+  ${({ theme }) => theme.media.md`background-color: purple`}
 `
 
 export default Grid

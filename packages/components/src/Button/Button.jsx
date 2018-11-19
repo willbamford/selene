@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
-import { color } from 'styled-system'
+import { flexDirection } from 'styled-system'
 
 const StyledButton = styled.button`
-  ${color};
+  ${flexDirection};
 `
 
 const Button = ({ children, ...rest }) => (
-  <StyledButton type="button" {...rest}>
+  <StyledButton type="button" flexDirection={['column', null, 'row']} {...rest}>
     {children}
   </StyledButton>
 )

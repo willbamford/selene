@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "@selene/theme": "^0.0.1",
-    "prop-types": "^15.6.2",
-    "styled-system": "^3.1.11"
+    "prop-types": "^15.6.2"
   },
   "peerDependencies": {
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "styled-components": "^4.0.0"
+    "styled-components": "^4.0.0",
+    "styled-system": "^3.1.0"
   },
   "gitHead": "ccf1949fa7cc43602472515aa61a2997f278458f"
 }
