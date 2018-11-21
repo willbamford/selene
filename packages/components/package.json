@@ -3,9 +3,11 @@
   "version": "0.0.1",
   "description": "Selene Components",
   "main": "index.js",
+  "source": "src/index.js",
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w",
+    "es": "babel --config-file ../scripts/babel ./src -d ./build/es --ignore **/__tests__",
     "lint": "eslint ."
   },
   "author": "Will Bamford",

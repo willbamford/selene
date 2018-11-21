@@ -1,14 +1,6 @@
 import styled from 'styled-components'
-import { createMediaQuery, style, space, px } from 'styled-system'
-
-export const gridGap = style({
-  prop: 'gap',
-  transformValue: value => {
-    console.log('value', value)
-    // console.log('gridGaps props', props)
-    return px(value)
-  },
-})
+import { createMediaQuery, px } from 'styled-system'
+import { getSpaceFn } from '@selene/theme'
 
 const DEFAULT = 'def'
 
@@ -76,13 +68,13 @@ const applyGridGap = ({ breakpoints, spacing }, gap, cssForGapFn) => {
   return cssForGapFn(spacing[gap])
 }
 
-// const gridGap = props => applyGridGap(props.theme, props.gap, cssForGap)
+const gridGap = props => applyGridGap(props.theme, props.gap, cssForGap)
 
-// const gridRowGap = props =>
-//   applyGridGap(props.theme, props.rowGap, cssForRowGap)
+const gridRowGap = props =>
+  applyGridGap(props.theme, props.rowGap, cssForRowGap)
 
-// const gridColGap = props =>
-//   applyGridGap(props.theme, props.colGap, cssForColGap)
+const gridColGap = props =>
+  applyGridGap(props.theme, props.colGap, cssForColGap)
 
 const Grid = styled.div`
   display: flex;
@@ -91,7 +83,10 @@ const Grid = styled.div`
   padding: 0;
 
   ${gridGap}
-  ${({ theme }) => theme.media.md`background-color: purple`}
+  ${({ theme }) => theme.media.md`
+    background-color: purple;
+    padding-top: ${px(theme.spacing[3])};
+  `}
 `
 
 export default Grid

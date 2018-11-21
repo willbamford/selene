@@ -1,0 +1,11 @@
+{
+  "name": "@selene/scripts",
+  "version": "0.0.1",
+  "description": "Selene Scripts",
+  "author": "Will Bamford",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
+}
