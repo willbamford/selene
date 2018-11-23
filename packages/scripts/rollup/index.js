@@ -25,7 +25,7 @@ const buildConfig = ({ name, pkg }) => {
   const cjs = {
     input,
     output: {
-      file: `lib/${name}.js`,
+      file: `build/${name}.bundle.js`,
       format: 'cjs',
       sourcemap: true,
     },
@@ -36,7 +36,7 @@ const buildConfig = ({ name, pkg }) => {
   const es = {
     input,
     output: {
-      file: `es/${name}.js`,
+      file: `build/${name}.bundle.es.js`,
       format: 'es',
       sourcemap: true,
     },

@@ -1,5 +1,18 @@
+const { MODULES_FORMAT } = process.env
+
+const format = {
+  esm: false,
+  cjs: 'commonjs',
+}
+
 module.exports = {
-  presets: ['@babel/preset-env', '@babel/preset-react'],
+  presets: [
+    [
+      '@babel/preset-env',
+      { modules: format[MODULES_FORMAT], loose: true, useBuiltIns: 'entry' },
+    ],
+    '@babel/preset-react',
+  ],
   plugins: [
     [
       'babel-plugin-styled-components',

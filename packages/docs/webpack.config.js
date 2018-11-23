@@ -7,7 +7,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            configFile: '../../babel.config.js',
+            configFile: '@selene/scripts/babel',
           },
         },
       },

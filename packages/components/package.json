@@ -2,12 +2,13 @@
   "name": "@selene/components",
   "version": "0.0.1",
   "description": "Selene Components",
-  "main": "index.js",
+  "main": "build/index.cjs.js",
+  "modules": "build/index.esm.js",
   "source": "src/index.js",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
-    "es": "babel --config-file ../scripts/babel ./src -d ./build/es --ignore **/__tests__",
+    "build:bundle": "rollup -c",
+    "build:cjs": "MODULES_FORMAT=cjs babel --config-file @selene/scripts/babel src --out-dir ./build --ignore **/__tests__",
+    "build:esm": "MODULES_FORMAT=esm babel --config-file @selene/scripts/babel src/index.js --out-file ./build/index.esm.js --ignore **/__tests__",
     "lint": "eslint ."
   },
   "author": "Will Bamford",
